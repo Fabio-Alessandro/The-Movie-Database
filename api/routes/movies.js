@@ -13,6 +13,14 @@ router.get ("/trending", (req, res) => {
         .catch (console.error);
 });
 
+router.get ("/recommended", (req, res) => {
+
+    axios.get (`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&page=1`)
+
+        .then (recommended => res.send (recommended.data.results))
+        .catch (console.error);
+});
+
 router.get ("/search", (req, res) => {
     
     const query = req.query.query;

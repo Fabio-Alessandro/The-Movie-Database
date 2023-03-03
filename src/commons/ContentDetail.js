@@ -21,6 +21,9 @@ const ContentDetail = () => {
         <p className="has-text-centered">Loading...</p>
     );
 
+    const showRuntime = content.last_episode_to_air?.runtime || null;
+    const movieRuntime = content?.runtime || null;
+
     return (
 
         <div className="columns">
@@ -43,10 +46,14 @@ const ContentDetail = () => {
                 <h4 className="subtitle is-4">Overview</h4>
                 <p className="mb-6">{content.overview}</p>
                 <div className="columns is-size-7 mt-6">
+                {content.release_date || content.first_air_date ?
                     <div className="column">
                         <p><strong>Release Date</strong></p>
                         <p>{content.release_date || content.first_air_date}</p>
                     </div>
+                    : 
+                    null}
+                {content.genres.length ?
                     <div className="column">
                         <p><strong>Genres</strong></p>
                         <p>{content.genres.map (genre => {
@@ -54,10 +61,15 @@ const ContentDetail = () => {
                             return genre.name;
                         }).join (", ")}</p>
                     </div>
+                    :
+                    null}
+                {showRuntime || movieRuntime ?
                     <div className="column">
                         <p><strong>Runtime</strong></p>
-                        <p>{convertMinutes (content.runtime || content.last_episode_to_air.runtime)}</p>
+                        <p>{convertMinutes (showRuntime || movieRuntime)}</p>
                     </div>
+                    : 
+                    null}
                 </div>
             </div>
         </div>

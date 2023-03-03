@@ -24,19 +24,24 @@ const Navbar = ({user, setUser}) => {
         <nav className="navbar">
             <div className="navbar-item ml-3">
                 <Link to="/"><h3 className="has-text-dark">TMDB</h3></Link> 
+                <Link to="/search">
+                    <span className="mx-5 has-text-dark">Search</span>
+                    <FontAwesomeIcon icon={faSearch} className="has-text-dark"/>
+                </Link>
             </div>
             <div className="navbar-item navbar-end mr-3">
-                <Link to="/search">
-                    <FontAwesomeIcon icon={faSearch} className="mr-5 has-text-dark"/>
-                    <span className="mr-5 has-text-dark">Search</span>
-                </Link>
             {!user.email ?
                 <>
                 <Link to="/register"><button className="button mx-2">Register</button></Link>
                 <Link to="/login"><button className="button">Log In</button></Link>
                 </>
                 :
-                <button onClick={handleLogout} className="button">Log Out</button>}
+                <>
+                <Link to="/my/recommendations">
+                    <span className="has-text-dark mx-5">{`${user.name} ${user.lastName}`}</span>
+                </Link>
+                <button onClick={handleLogout} className="button">Log Out</button>
+                </>}
             </div>
         </nav>
     );

@@ -1,15 +1,15 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useInput } from "../hooks/useInput";
 
-const Register = () => {
+const Register = ({user}) => {
 
 	const navigate = useNavigate ();
 	const name = useInput ();
 	const lastName = useInput ();
 	const email = useInput ();
 	const password = useInput ();
-	
 	const data = { 
 		
 		name: name.value, 
@@ -17,6 +17,11 @@ const Register = () => {
 		email: email.value, 
 		password: password.value 
 	}
+
+	useEffect (() => {
+
+        if (user.email) navigate ("/");
+    }, [user, navigate]);
 
 	const handleSubmit = event => {
 
@@ -31,6 +36,7 @@ const Register = () => {
 	return (
 		
 		<div className="layout m-6">
+		{!user.email ?
 			<form onSubmit={handleSubmit}>
 				<label className='label my-3'>Name</label>
 				<input 
@@ -70,6 +76,8 @@ const Register = () => {
 				/>
 				<button type="submit" className='button my-5'>Submit</button>
 			</form>
+			: 
+			<p className="has-text-centered">Loading...</p>}
 		</div>
 	);
 }
