@@ -1,0 +1,1 @@
+Terminé todas las funcionalidades must have, me enfoqué en resolver todos los potenciales bugs que rompieran la aplicacion o dificultaran la navegación, antes de hacer lo demás. Escribí unos comentarios en el commit que explica lo que fuí haciendo.
