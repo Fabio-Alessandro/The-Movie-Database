@@ -22,7 +22,10 @@ function App () {
 		
 		JSON.parse (localStorage.getItem ("searchResults")) || []
 	);
-	const [contentType, setContentType] = useState ("");
+	const [contentType, setContentType] = useState (
+
+		JSON.parse (localStorage.getItem ("searchContentType")) || ""
+	);
 
 	useEffect (() => {
 
@@ -54,8 +57,9 @@ function App () {
 
 	useEffect (() => {
 
+		localStorage.setItem ("searchContentType", JSON.stringify (contentType));
 		localStorage.setItem ("searchResults", JSON.stringify (searchResults));
-	}, [searchResults]);
+	}, [contentType, searchResults]);
 
 	if (!trendingMovies.length || !trendingShows.length) return (
 	

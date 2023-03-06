@@ -12,9 +12,13 @@ router.get ("/me", validateUser, (req, res) => {
 
 router.post ("/register", (req, res) => {
 
-    User.create (req.body)
+    User.findOrCreate ({ 
+        
+        where: { email: req.body.email },
+        defaults: { ...req.body }
+    })
 
-        .then (() => res.sendStatus (201))
+        .then (([user, created]) => res.send (created))
         .catch (console.error);
 });
 

@@ -29,7 +29,11 @@ const Register = ({user}) => {
 	
 		axios.post ("/api/user/register", data)
 
-			.then (() => navigate ("/login"))
+			.then (newUser => {
+				
+				if (!newUser.data) return alert ("An user with this e-mail already exists.")
+				navigate ("/login");
+			})
 			.catch (console.error);
 	}
 
