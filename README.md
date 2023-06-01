@@ -17,7 +17,6 @@
   <p align="center">
     Millions of movies & TV shows to discover. Explore now.
     <br></br>
-    <a href="https://www.youtube.com/">View Demo</a> · 
     <a href="https://github.com/Fabio-Alessandro/The-Movie-Database/issues">Report Bug</a> · 
     <a href="https://github.com/Fabio-Alessandro/The-Movie-Database/issues">Request Feature</a>
   </p>
@@ -41,7 +40,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -110,16 +108,6 @@ npm start
 That's it! A new tab will be opened automatically showing the project. 
 
 *Repeat step two if you want to start the project again.*
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GALLERY -->
-
-## Gallery
-
-See the app in action: 
-
-[![YouTube][YouTube]][Youtube-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
